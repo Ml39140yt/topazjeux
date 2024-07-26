@@ -1,35 +1,30 @@
-const playerHand = document.getElementById('player-hand');
-const opponentHand = document.getElementById('opponent-hand');
-const drawCardButton = document.getElementById('draw-card-button');
-
-const deck = [
-    { name: "Blue-Eyes White Dragon", attack: 3000, defense: 2500 },
-    { name: "Dark Magician", attack: 2500, defense: 2100 },
-    { name: "Summoned Skull", attack: 2500, defense: 1200 },
-    // Ajoutez plus de cartes ici
-];
-
-function createCardElement(card) {
-    const cardElement = document.createElement('div');
-    cardElement.classList.add('card');
-    cardElement.innerHTML = `
-        <h3>${card.name}</h3>
-        <p>ATK: ${card.attack}</p>
-        <p>DEF: ${card.defense}</p>
-    `;
-    return cardElement;
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #2c3e50;
+    color: white;
 }
 
-function drawCard() {
-    if (deck.length === 0) {
-        alert("No more cards in the deck!");
-        return;
-    }
-
-    const randomIndex = Math.floor(Math.random() * deck.length);
-    const card = deck.splice(randomIndex, 1)[0];
-    const cardElement = createCardElement(card);
-    playerHand.appendChild(cardElement);
+#game-board {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
 }
 
-drawCardButton.addEventListener('click', drawCard);
+.hand {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+}
+
+.card {
+    width: 100px;
+    height: 150px;
+    margin: 5px;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+}
